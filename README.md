@@ -1,4 +1,4 @@
-# rbm_wavefunctions
+# RBM Learning of Multi-Modal Distributions
 
 This repository contains a TensorFlow implementation of Restricted Boltzmann Machine (RBM) learning, adapted from [github.com/MelkoCollective/ICTP-SAIFR-MLPhysics/tree/master/RBM_CDL](https://github.com/MelkoCollective/ICTP-SAIFR-MLPhysics/tree/master/RBM_CDL).
 
