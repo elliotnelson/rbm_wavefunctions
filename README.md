@@ -12,11 +12,11 @@ However, if we are able to compute the true probability *p(x)* for a sample conf
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\mathcal{L}&space;\approx&space;\frac{1}{N}\sum_j^N&space;\frac{p(x_j)}{q(x_j)}&space;\log&space;p_M(x_j)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathcal{L}&space;\approx&space;\frac{1}{N}\sum_j^N&space;\frac{p(x_j)}{q(x_j)}&space;\log&space;p_M(x_j)" title="\mathcal{L} \approx \frac{1}{N}\sum_j^N \frac{p(x_j)}{q(x_j)} \log p_M(x_j)" /></a>
 
-This also allows us to use other cost functions which do not integrate over the true distribution. In particular, the reverse KL divergence,
+We can also use other cost functions which do not integrate over the true distribution. In particular, the reverse KL divergence,
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=D_{KL}(p_M||p)&space;=&space;-&space;\sum_x&space;p_M(x)\log\left(\frac{p(x)}{p_M(x)}\right)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?D_{KL}(p_M||p)&space;=&space;-&space;\sum_x&space;p_M(x)\log\left(\frac{p(x)}{p_M(x)}\right)" title="D_{KL}(p_M||p) = - \sum_x p_M(x)\log\left(\frac{p(x)}{p_M(x)}\right)" /></a>
 
-unlike the usual cross-entropy or KL divergence, <a href="http://www.codecogs.com/eqnedit.php?latex=D_{KL}(p||p_M)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?D_{KL}(p||p_M)" title="D_{KL}(p||p_M)" /></a>, integrates over the (RBM) model distribution *p_M*. If we are able to label each sample *x* with the true probability *p(x)*, then we can approximate the reverse KL divergence with samples from *p(x)*:
+unlike the usual cross-entropy or KL divergence, <a href="http://www.codecogs.com/eqnedit.php?latex=D_{KL}(p||p_M)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?D_{KL}(p||p_M)" title="D_{KL}(p||p_M)" /></a>, integrates over the (RBM) model distribution *p_M*. If we are able to compute the true probability *p(x)* for each sample *x* , then we can approximate the reverse KL divergence with samples from *p(x)*:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=D_{KL}(p_M||p)&space;\approx&space;-&space;\frac{1}{N}&space;\sum_j^N&space;\frac{p_M(x_j)}{p(x_j)}\log\left(\frac{p(x_j)}{p_M(x_j)}\right)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?D_{KL}(p_M||p)&space;\approx&space;-&space;\frac{1}{N}&space;\sum_j^N&space;\frac{p_M(x_j)}{p(x_j)}\log\left(\frac{p(x_j)}{p_M(x_j)}\right)" title="D_{KL}(p_M||p) \approx - \frac{1}{N} \sum_j^N \frac{p_M(x_j)}{p(x_j)}\log\left(\frac{p(x_j)}{p_M(x_j)}\right)" /></a>
 
