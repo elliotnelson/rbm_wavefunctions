@@ -14,8 +14,12 @@ However, if we are able to compute the true probability *p(x)* for a sample conf
 
 This also allows us to use other cost functions which do not integrate over the true distribution, such as the reverse KL divergence, which integrates over the (RBM) model distribution.
 
-In particular, the reverse KL divergence (unlike the usual cross-entropy or KL divergence) strongly penalizes the model for failing to assign low probability to unlikely configurations with low *p(x)*. Using an importance sampling distribution *q(x)* to include such configurations, along with a cost function which penalizes in this way, we can more easily train the RBM to suppress probability mass between the modes of *p(x)*.  On the other hand, the reverse KL divergence has a tendency to lock onto a single mode, and struggles to maintain probability mass over all modes as well as the cross-entropy.  (Cf. Goodfellow, ["NIPS 2016 Tutorial:
-Generative Adversarial Networks"](https://arxiv.org/pdf/1701.00160.pdf).)  I am currently looking for a good way to resolve this.
+In particular, the reverse KL divergence (unlike the usual cross-entropy or KL divergence),
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=D_{KL}(p_M||p)&space;=&space;-&space;\sum_x&space;p_M(x)\log\left(\frac{p(x)}{p_M(x)}\right)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?D_{KL}(p_M||p)&space;=&space;-&space;\sum_x&space;p_M(x)\log\left(\frac{p(x)}{p_M(x)}\right)" title="D_{KL}(p_M||p) = - \sum_x p_M(x)\log\left(\frac{p(x)}{p_M(x)}\right)" /></a>
+
+penalizes the model for failing to assign low probability *p_M(x)* to unlikely configurations with low *p(x)*. Using an importance sampling distribution *q(x)* to include such configurations, along with a cost function which penalizes in this way, we can more easily train the RBM to suppress probability mass *p_M(x)* between the modes of *p(x)*.  On the other hand, the reverse KL divergence has a tendency to lock onto a single mode, and struggles to maintain probability mass over all modes as well as the cross-entropy.  (Cf. Goodfellow, ["NIPS 2016 Tutorial:
+Generative Adversarial Networks"](https://arxiv.org/pdf/1701.00160.pdf).)  I am currently looking for a good way to resolve this, in particular by looking for conditions such that the model behaves well when perturbed around the solution *p_M(x)=p(x)*.
 
 This is early-stage work in progress with collaborators, and the goal is to extend results for multi-modal probability distributions to entangled quantum wavefunctions with a similar structure.
 
