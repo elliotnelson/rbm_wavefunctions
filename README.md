@@ -2,7 +2,7 @@
 
 This repository contains a TensorFlow implementation of Restricted Boltzmann Machine (RBM) learning, adapted from [github.com/MelkoCollective/ICTP-SAIFR-MLPhysics/tree/master/RBM_CDL](https://github.com/MelkoCollective/ICTP-SAIFR-MLPhysics/tree/master/RBM_CDL).
 
-The current goal is to train the RBM to efficiently represent a simple simple multi-modal data distribution (see below for the motivation).  In particular, I am exploring the success of different cost functions at maintaining probability mass over multiple modes while also suppressing probability mass between modes, where probability can be extremely low.
+The current goal is to train the RBM to efficiently represent a simple simple multi-modal data distribution (see below for the motivation).  In particular, I am exploring the success of different cost functions at maintaining probability mass over multiple modes while also suppressing probability mass between modes, where probability for the distributions of interest can be extremely low.
 
 In general, unsupervised data are drawn from some unknown probability distribution, and the cross-entropy or KL divergence between the true distribution *p(x)* and model distribution <a href="https://www.codecogs.com/eqnedit.php?latex=p_M(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_M(x)" title="p_M(x)" /></a> must be approximated as a sum over the data samples available:
 
