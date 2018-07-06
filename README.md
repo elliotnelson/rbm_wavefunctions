@@ -4,7 +4,7 @@ This repository contains a TensorFlow implementation of Restricted Boltzmann Mac
 
 The current goal is to train the RBM to efficiently represent a simple simple multi-modal data distribution (see below for the motivation).  In particular, I am exploring the success of different cost functions at maintaining probability mass over multiple modes while also suppressing probability mass between modes, where probability for the distributions of interest can be extremely low.
 
-In general, unsupervised data are drawn from some unknown probability distribution, and the cross-entropy or KL divergence between the true distribution *p(x)* and model distribution <a href="https://www.codecogs.com/eqnedit.php?latex=p_M(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_M(x)" title="p_M(x)" /></a> must be approximated as a sum over the data samples available:
+In general, unsupervised data are drawn from some unknown probability distribution, and the cross-entropy or KL divergence between the true distribution *p(x)* and model distribution <a href="https://www.codecogs.com/eqnedit.php?latex=p_M(x)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p_M(x)" title="p_M(x)" /></a> must be approximated as a sum over the *N* data samples available:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\mathcal{L}&space;=&space;\sum_x&space;p(x)\log&space;p_M(x)&space;\approx&space;\frac{1}{N}\sum_i^N&space;\log&space;p_M(x_i)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathcal{L}&space;=&space;\sum_x&space;p(x)\log&space;p_M(x)&space;\approx&space;\frac{1}{N}\sum_i^N&space;\log&space;p_M(x_i)" title="\mathcal{L} = \sum_x p(x)\log p_M(x) \approx \frac{1}{N}\sum_i^N \log p_M(x_i)" /></a>
 
